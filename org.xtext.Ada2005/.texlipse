@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Wed Feb 25 00:03:31 CET 2015
+markTmpDer=true
+builderNum=2
+outputDir=doc/design/artefacts
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=doc/design/tmp
+mainTexFile=DJD-Ada2005-xtext.tex
+outputFile=DJD-Ada2005-xtext.pdf
+langSpell=eu
+markDer=false
+srcDir=doc/design/

@@ -1,0 +1,19 @@
+/**
+ */
+package org.xtext.ada2005.adb;
+
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Scalar Constraint</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ *
+ * @see org.xtext.ada2005.adb.AdbPackage#getScalarConstraint()
+ * @model
+ * @generated
+ */
+public interface ScalarConstraint extends EObject
+{
+} // ScalarConstraint

@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.xtext.Ada2005/src-gen" editDirectory="/org.xtext.Ada2005.edit/src"
+    editorDirectory="/org.xtext.Ada2005.editor/src" modelPluginID="org.xtext.Ada2005"
+    forceOverwrite="true" modelName="Adb" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="org.xtext.Ada2005.edit"
+    editorPluginID="org.xtext.Ada2005.editor" runtimeVersion="2.12">
+  <genPackages prefix="Adb" basePackage="org.xtext.ada2005" disposableProviderFactory="true"
+      loadInitialization="true" literalsInterface="false" ecorePackage="Adb.ecore#/">
+    <genClasses ecoreClass="Adb.ecore#//Compilation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//Compilation/compilationUnits"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//CompilationUnit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//CompilationUnit/contextClause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//CompilationUnit/unit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//CompilationUnit/pragmas"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//Unit"/>
+    <genClasses ecoreClass="Adb.ecore#//ContextClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ContextClause/contextItems"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ContextItem"/>
+    <genClasses ecoreClass="Adb.ecore#//WithClause">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//WithClause/limited"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//WithClause/private"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Adb.ecore#//WithClause/importURI"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//UseClause"/>
+    <genClasses ecoreClass="Adb.ecore#//UsePackageClause">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Adb.ecore#//UsePackageClause/importedNamespace"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//UseTypeClause">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//UseTypeClause/typesNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//UseTypeClause/useTypeRefs"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//LibraryUnitDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//LibraryUnitDeclaration/private"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//LibraryUnitDeclaration/libraryUnitSpecification"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//LibraryUnitSpecification"/>
+    <genClasses ecoreClass="Adb.ecore#//PackageDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//PackageDeclaration/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//PackageDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//PackageDefinition/packageSpecification"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//Renaming">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//Renaming/renamed"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//GenericDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//GenericDeclaration/genericItems"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//GenericDeclaration/librarySpecification"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//GenericInstantiation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//GenericInstantiation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//GenericInstantiation/genericName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//GenericInstantiation/overriding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//GenericInstantiation/genericActualPart"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//PackageSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//PackageSpecification/publicBasicDeclarativeItems"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//PackageSpecification/privateBasicDeclarativeItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//PackageSpecification/endname"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//SubprogramBody">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SubprogramBody/subprogramSpecification"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//SubprogramBody/endname"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//DeclarativeBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DeclarativeBlock/declarativeItems"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DeclarativeBlock/handledSequenceOfStatements"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//BasicDeclarativeItem"/>
+    <genClasses ecoreClass="Adb.ecore#//BasicDeclaration"/>
+    <genClasses ecoreClass="Adb.ecore#//TaskDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//TaskDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//TaskDeclaration/knownDiscriminantPart"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//TaskDeclaration/interfaceList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//TaskDeclaration/taskDefinition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Adb.ecore#//TaskDeclaration/endid"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//TypeDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//TypeDeclaration/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//NewTypeDeclaration"/>
+    <genClasses ecoreClass="Adb.ecore#//FullTypeDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FullTypeDeclaration/knownDiscriminantPart"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//FullDataTypeDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FullDataTypeDeclaration/typeDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//IncompleteTypeDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//IncompleteTypeDeclaration/discriminantPart"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//IncompleteTypeDeclaration/tagged"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//PrivateTypeDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//PrivateTypeDeclaration/discriminantPart"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//PrivateTypeDeclaration/abstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//PrivateTypeDeclaration/tagged"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//PrivateTypeDeclaration/limited"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//PrivateExtensionDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//PrivateExtensionDeclaration/discriminantPart"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//PrivateExtensionDeclaration/abstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//PrivateExtensionDeclaration/limited"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//PrivateExtensionDeclaration/synchronized"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//PrivateExtensionDeclaration/ancestorSubtypeIndication"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//PrivateExtensionDeclaration/interfaceList"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//TaskItem"/>
+    <genClasses ecoreClass="Adb.ecore#//EntryDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//EntryDeclaration/overriding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//EntryDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//EntryDeclaration/discreteSubtypeDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//EntryDeclaration/formalPart"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//OverridingIndicator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//OverridingIndicator/not"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ProtectedTypeDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ProtectedTypeDeclaration/interfaceList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ProtectedTypeDeclaration/protectedDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ProtectedDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ProtectedDefinition/protectedOperationDeclaration"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ProtectedElementDeclaration"/>
+    <genClasses ecoreClass="Adb.ecore#//ProtectedOperationDeclaration"/>
+    <genClasses ecoreClass="Adb.ecore#//SubprogramDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SubprogramDeclaration/subprogramSpecification"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//SubprogramDeclaration/abstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//SubprogramDeclaration/renamedName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//SubprogramDeclaration/null"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//SubprogramSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SubprogramSpecification/overridingIndicator"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ProcedureSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ProcedureSpecification/formalPart"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//FunctionSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FunctionSpecification/parameterAndResultProfile"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//HandledSequenceOfStatements"/>
+    <genClasses ecoreClass="Adb.ecore#//ExceptionChoice">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ExceptionChoice/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//ExceptionChoice/others"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ExceptionHandler">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//ExceptionHandler/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ExceptionHandler/exceptionChoice"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ExceptionHandler/sequenceOfStatements"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//DeclarativeItem"/>
+    <genClasses ecoreClass="Adb.ecore#//Body"/>
+    <genClasses ecoreClass="Adb.ecore#//ProperBody"/>
+    <genClasses ecoreClass="Adb.ecore#//Label">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//Label/identifier"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//SequenceOfStatements">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SequenceOfStatements/exceptionHandler"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SequenceOfStatements/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//LabelisableStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//LabelisableStatement/labels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//LabelisableStatement/statement"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//Statement"/>
+    <genClasses ecoreClass="Adb.ecore#//SimpleStatement"/>
+    <genClasses ecoreClass="Adb.ecore#//CompoundStatement"/>
+    <genClasses ecoreClass="Adb.ecore#//NullStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//NullStatement/null"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//LibrarySpecification"/>
+    <genClasses ecoreClass="Adb.ecore#//GenericItems">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//GenericItems/genericItems"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//GenericItem"/>
+    <genClasses ecoreClass="Adb.ecore#//GenericFormalParameterDeclaration"/>
+    <genClasses ecoreClass="Adb.ecore#//FormalObjectDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalObjectDeclaration/idList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalObjectDeclaration/mode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalObjectDeclaration/optNullExclusion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalObjectDeclaration/subtypeMark"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalObjectDeclaration/anonymousAccessDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalObjectDeclaration/defaultExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//FormalTypeDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//FormalTypeDeclaration/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalTypeDeclaration/discriminantPart"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalTypeDeclaration/formalTypeDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//FormalTypeDefinition"/>
+    <genClasses ecoreClass="Adb.ecore#//FormalPrivateTypeDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//FormalPrivateTypeDefinition/abstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//FormalPrivateTypeDefinition/tagged"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//FormalPrivateTypeDefinition/limited"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//FormalDerivedTypeDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//FormalDerivedTypeDefinition/absract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//FormalDerivedTypeDefinition/limited"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//FormalDerivedTypeDefinition/synchronized"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalDerivedTypeDefinition/subtypeMark"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalDerivedTypeDefinition/interfaceList"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//FormalSubprogramDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalSubprogramDeclaration/subprogramSpecification"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//FormalSubprogramDeclaration/abstract"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalSubprogramDeclaration/subprogramDefault"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//SubprogramDefault">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//SubprogramDefault/defaultName"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//FormalPackageDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//FormalPackageDeclaration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//FormalPackageDeclaration/genericPackageName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalPackageDeclaration/formalPackageActualPart"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//FormalPackageActualPart">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//FormalPackageActualPart/box"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalPackageActualPart/genericActualPart"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalPackageActualPart/formalPackageAssociation"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//FormalPackageAssociation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalPackageAssociation/genericAssociation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//FormalPackageAssociation/genericFormalParameterSelectorName"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ExceptionDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ExceptionDeclaration/idList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ExceptionDeclaration/renamedName"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ObjectDeclaration"/>
+    <genClasses ecoreClass="Adb.ecore#//DataInstanceDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DataInstanceDeclaration/definingIdentifierList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//DataInstanceDeclaration/aliased"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//DataInstanceDeclaration/constant"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DataInstanceDeclaration/subtypeIndication"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DataInstanceDeclaration/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DataInstanceDeclaration/objectName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DataInstanceDeclaration/anonymousAccessDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DataInstanceDeclaration/arrayTypeDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//SingleProtectedDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//SingleProtectedDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SingleProtectedDeclaration/interfaceList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SingleProtectedDeclaration/protectedDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//Pragma">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//Pragma/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//Pragma/pragmaArgumentAssociation"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//PragmaArgumentAssociation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//PragmaArgumentAssociation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//PragmaArgumentAssociation/effectiveArgument"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//SubtypeDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SubtypeDeclaration/subtypeIndication"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//NumberDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//NumberDeclaration/idList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//NumberDeclaration/staticExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//AssignmentStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AssignmentStatement/variableName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AssignmentStatement/initialValue"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//IfStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//IfStatement/ifCondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//IfStatement/thenStatements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//IfStatement/elsifConditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//IfStatement/elsifStatements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//IfStatement/elseStatements"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//CaseStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//CaseStatement/caseValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//CaseStatement/caseStatementAlternatives"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//CaseStatementAlternative">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//CaseStatementAlternative/discreteChoiceList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//CaseStatementAlternative/sequenceOfStatements"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//LoopStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//LoopStatement/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//LoopStatement/iterationScheme"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//LoopStatement/sequenceOfStatements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//LoopStatement/sameName"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//IterationScheme">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//IterationScheme/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//IterationScheme/iterationSpecification"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//LoopParameterSpecification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//LoopParameterSpecification/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//LoopParameterSpecification/discreteSubtypeDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//BlockStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//BlockStatement/blockStatementIdentifier"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ExitStatement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Adb.ecore#//ExitStatement/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ExitStatement/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//GotoStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//GotoStatement/labelId"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ProcedureOrEntryCallStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ProcedureOrEntryCallStatement/callee"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//SimpleReturnStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SimpleReturnStatement/returnValue"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ExtendedReturnStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//ExtendedReturnStatement/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ExtendedReturnStatement/returnSubtype"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ExtendedReturnStatement/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ExtendedReturnStatement/handledSequenceOfStatements"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ReturnSubtypeIndication"/>
+    <genClasses ecoreClass="Adb.ecore#//PackageBody">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Adb.ecore#//PackageBody/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Adb.ecore#//PackageBody/endName"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//TaskDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//TaskDefinition/taskItems"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//TaskBody">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Adb.ecore#//TaskBody/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Adb.ecore#//TaskBody/endId"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ProtectedBody">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//ProtectedBody/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ProtectedBody/protectedOperationItem"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//ProtectedBody/idTask"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ProtectedOperationItem"/>
+    <genClasses ecoreClass="Adb.ecore#//AcceptStatement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Adb.ecore#//AcceptStatement/entryName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AcceptStatement/entryIndex"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AcceptStatement/formalPart"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AcceptStatement/handledSequenceOfStatements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//AcceptStatement/entryidentifier"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//EntryIndex"/>
+    <genClasses ecoreClass="Adb.ecore#//EntryBody">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Adb.ecore#//EntryBody/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//EntryBody/entryBodyFormalPart"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//EntryBody/entryBarrier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//EntryBody/endid"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//EntryBodyFormalPart">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//EntryBodyFormalPart/entryIndexSpecification"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//EntryBodyFormalPart/formalPart"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//EntryBarrier">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//EntryBarrier/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//EntryIndexSpecification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//EntryIndexSpecification/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//EntryIndexSpecification/discreteSubtypeDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//RequeueStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//RequeueStatement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//RequeueStatement/abort"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//DelayStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//DelayStatement/until"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DelayStatement/delay"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//SelectStatement"/>
+    <genClasses ecoreClass="Adb.ecore#//SelectiveAccept">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SelectiveAccept/selectguard"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SelectiveAccept/selectAlternative"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SelectiveAccept/guardedAlternatives"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SelectiveAccept/elseStatements"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//GuardedAlternative">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//GuardedAlternative/guard"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//GuardedAlternative/alternative"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//Guard">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//Guard/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//SelectAlternative">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SelectAlternative/sequenceOfStatements"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//AcceptAlternative">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AcceptAlternative/acceptStatement"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//DelayAlternative">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DelayAlternative/delayStatement"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//TimedEntryCall">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//TimedEntryCall/entryCallAlternative"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//TimedEntryCall/delayAlternative"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//EntryCallAlternative">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//EntryCallAlternative/call"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//EntryCallAlternative/sequenceOfStatements"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ConditionalEntryCall">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ConditionalEntryCall/entryCallAlternative"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ConditionalEntryCall/elseSequenceOfStatements"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//AsynchronousSelect">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AsynchronousSelect/triggeringAlternative"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AsynchronousSelect/abortablePart"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//TriggeringAlternative">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//TriggeringAlternative/triggeringStatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//TriggeringAlternative/sequenceOfStatements"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//TriggeringStatement"/>
+    <genClasses ecoreClass="Adb.ecore#//AbortablePart"/>
+    <genClasses ecoreClass="Adb.ecore#//AbortStatement"/>
+    <genClasses ecoreClass="Adb.ecore#//TaskNames">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//TaskNames/taskNames"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//BodyStub">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//BodyStub/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//PackageBodyStub"/>
+    <genClasses ecoreClass="Adb.ecore#//TaskBodyStub"/>
+    <genClasses ecoreClass="Adb.ecore#//ProtectedBodyStub"/>
+    <genClasses ecoreClass="Adb.ecore#//SeparateSubunit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//SeparateSubunit/parentUnitName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SeparateSubunit/properBody"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//RaiseStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//RaiseStatement/exceptionName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//RaiseStatement/withExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//GenericActualPart">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//GenericActualPart/genericAssociation"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//GenericAssociation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//GenericAssociation/selectorName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//GenericAssociation/expplicitGenericActualParam"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ExplicitGenericActualParameter"/>
+    <genClasses ecoreClass="Adb.ecore#//TypeDefinition"/>
+    <genClasses ecoreClass="Adb.ecore#//DiscriminantPart"/>
+    <genClasses ecoreClass="Adb.ecore#//UnknownDiscriminantPart">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//UnknownDiscriminantPart/box"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//KnownDiscriminantPart">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//KnownDiscriminantPart/discriminantsSpecification"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//DiscriminantSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DiscriminantSpecification/definingIdentifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DiscriminantSpecification/optNullExclusion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DiscriminantSpecification/accessDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DiscriminantSpecification/subtypeMark"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DiscriminantSpecification/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//InterfaceList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//InterfaceList/interfaceSubtypeMark"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//InterfaceTypeDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//InterfaceTypeDefinition/limited"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//InterfaceTypeDefinition/task"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//InterfaceTypeDefinition/protected"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//InterfaceTypeDefinition/synchro"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//InterfaceTypeDefinition/interfaceList"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//DerivedTypeDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//DerivedTypeDefinition/abstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//DerivedTypeDefinition/limited"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DerivedTypeDefinition/subtypeIndication"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DerivedTypeDefinition/interfaceList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DerivedTypeDefinition/recordExtentionPart"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//RecordExtensionPart">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//RecordExtensionPart/recordDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//AccessTypeDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AccessTypeDefinition/optNullExclusion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AccessTypeDefinition/accessDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//AccessSpecification"/>
+    <genClasses ecoreClass="Adb.ecore#//AccessToSubprogramDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//AccessToSubprogramDefinition/protected"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AccessToSubprogramDefinition/formalPart"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AccessToSubprogramDefinition/parameterAndResultProfile"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//AccessToDataDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//AccessToDataDefinition/generalAccessModifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AccessToDataDefinition/subtypeIndication"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ArrayTypeDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ArrayTypeDefinition/arrayIndexes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ArrayTypeDefinition/componentDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ArrayIndexes"/>
+    <genClasses ecoreClass="Adb.ecore#//UnconstrainedIndexes">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//UnconstrainedIndexes/subtypeMark"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ConstrainedIndexes">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ConstrainedIndexes/constrainedIndex"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//DiscreteSubtypeDefinition"/>
+    <genClasses ecoreClass="Adb.ecore#//ComponentDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//ComponentDefinition/aliased"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ComponentDefinition/subtypeIndication"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ComponentDefinition/anonymousAccessDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//AnonymousAccessDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AnonymousAccessDefinition/optNullExclusion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AnonymousAccessDefinition/accessDef"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//NotNullAccessDefinition"/>
+    <genClasses ecoreClass="Adb.ecore#//AccessToDataInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//AccessToDataInstance/constant"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AccessToDataInstance/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ParameterAndResultProfile">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ParameterAndResultProfile/formalPart"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ParameterAndResultProfile/opt_nullExclusion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ParameterAndResultProfile/subtypeMark"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ParameterAndResultProfile/anonymousAccessDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//FormalPart">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FormalPart/parameterSpecifications"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ParameterSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ParameterSpecification/definingIdentifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ParameterSpecification/mode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ParameterSpecification/optNullExclusion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ParameterSpecification/subtypeMark"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ParameterSpecification/anonymousAccessDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ParameterSpecification/defaultExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//Mode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//Mode/in"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//Mode/out"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//IntegerTypeDefinition"/>
+    <genClasses ecoreClass="Adb.ecore#//SignedIntegerTypeDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SignedIntegerTypeDefinition/first"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SignedIntegerTypeDefinition/last"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ModularTypeDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ModularTypeDefinition/staticExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//EnumerationTypeDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//EnumerationTypeDefinition/enumerationliteralspecifications"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//RecordTypeDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//RecordTypeDefinition/abstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//RecordTypeDefinition/tagged"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//RecordTypeDefinition/limited"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//RecordTypeDefinition/recordDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//RecordDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//RecordDefinition/componentList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//RecordDefinition/null"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ComponentList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ComponentList/componentItems"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ComponentList/optVariantPart"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//OptVariantPart">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//OptVariantPart/variantPart"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ComponentItem"/>
+    <genClasses ecoreClass="Adb.ecore#//ComponentDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ComponentDeclaration/definingIdentifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ComponentDeclaration/componentDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ComponentDeclaration/defaultExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//DefiningIdentifierList">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//DefiningIdentifierList/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//AspectClause">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//AspectClause/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AspectClause/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AspectClause/mod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AspectClause/componentClause"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ModClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ModClause/mod"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ComponentClause">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//ComponentClause/localName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ComponentClause/position"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ComponentClause/firstBit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ComponentClause/lastBit"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//VariantPart">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//VariantPart/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//VariantPart/variants"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//Variant">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//Variant/discreteChoiceList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//Variant/componentList"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//DiscreteChoiceList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DiscreteChoiceList/discreteChoiceList"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//RealTypeDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//RealTypeDefinition/digits"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//RealTypeDefinition/realRangeSpecification"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//FloatingPointDefinition"/>
+    <genClasses ecoreClass="Adb.ecore#//RealRangeSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//RealRangeSpecification/lowerBound"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//RealRangeSpecification/upperBound"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//FixedPointDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//FixedPointDefinition/delta"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//Expression/relations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//Expression/booleanOperator"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//Relation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//Relation/simpleExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//Relation/relationalOperator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//Relation/subSimpleExpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//Relation/membership"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//Membership">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//Membership/not"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//Membership/interval"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//Interval"/>
+    <genClasses ecoreClass="Adb.ecore#//SimpleExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//SimpleExpression/unaryAddingOperator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SimpleExpression/terms"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//SimpleExpression/binaryAddingOperators"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//Term">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//Term/factors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//Term/multiplyingOperators"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//Factor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//Factor/primary"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//Factor/exponent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//Factor/abs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//Factor/not"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//Primary"/>
+    <genClasses ecoreClass="Adb.ecore#//NumericLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//NumericLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//Null">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//Null/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//StringLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//StringLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//QualifiedName">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//QualifiedName/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//QualifiedName/qualifier"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ParenthesizedExpression"/>
+    <genClasses ecoreClass="Adb.ecore#//Qualifier"/>
+    <genClasses ecoreClass="Adb.ecore#//Allocator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//Allocator/typeName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//Allocator/qualifier"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//SubtypeIndication">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SubtypeIndication/opt_nullExclusion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//SubtypeIndication/subtypeMark"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//SubtypeIndication/opt_constraint"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//OptNullExclusion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//OptNullExclusion/not_null"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//OptConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//OptConstraint/optConstraint"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ScalarConstraint"/>
+    <genClasses ecoreClass="Adb.ecore#//DigitsConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DigitsConstraint/digits"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DigitsConstraint/rangeConstraint"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//DeltaConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DeltaConstraint/delta"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DeltaConstraint/rangeConstraint"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//RangeConstraint"/>
+    <genClasses ecoreClass="Adb.ecore#//CompositeConstraint"/>
+    <genClasses ecoreClass="Adb.ecore#//DiscriminantConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DiscriminantConstraint/discriminantAssociation"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//IndexConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//IndexConstraint/discreteRange"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//DiscriminantAssociation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DiscriminantAssociation/discriminantSelectors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//DiscriminantAssociation/actualParameter"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//DiscriminantSelectors">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//DiscriminantSelectors/discriminantSelectorName"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//DiscreteRange"/>
+    <genClasses ecoreClass="Adb.ecore#//ComponentChoiceList">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//ComponentChoiceList/componentSelectorName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//ComponentChoiceList/others"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//DiscreteChoice"/>
+    <genClasses ecoreClass="Adb.ecore#//Aggregate"/>
+    <genClasses ecoreClass="Adb.ecore#//RecordAggregate"/>
+    <genClasses ecoreClass="Adb.ecore#//RecordComponentAssociationList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//RecordComponentAssociationList/recordComponentAssociation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//RecordComponentAssociationList/nullRecord"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//RecordComponentAssociation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//RecordComponentAssociation/componentChoiceList"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//InitializedComponents">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//InitializedComponents/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//UninitializedComponents">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//UninitializedComponents/box"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ExtensionAggregate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ExtensionAggregate/ancestorPart"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ExtensionAggregate/recordComponentAssociationList"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ArrayAggregate"/>
+    <genClasses ecoreClass="Adb.ecore#//PositionalArrayAggregate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//PositionalArrayAggregate/initialValues"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//PositionalArrayAggregate/othersValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//PositionalArrayAggregate/othersBox"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//NamedArrayAggregate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//NamedArrayAggregate/arrayComponentAssociation"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ArrayComponentAssociation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ArrayComponentAssociation/discreteChoiceList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ArrayComponentAssociation/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//ArrayComponentAssociation/box"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//AncestorPart"/>
+    <genClasses ecoreClass="Adb.ecore#//Name">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//Name/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//Name/primaryName"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//PrimaryName">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//PrimaryName/parameterAssociation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//PrimaryName/primaryName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//PrimaryName/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//PrimaryName/attributeDesignator"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ParameterAssociation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Adb.ecore#//ParameterAssociation/selectorName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ParameterAssociation/parameterEffectiveValue"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ParameterEffectiveValue"/>
+    <genClasses ecoreClass="Adb.ecore#//AttributeDesignator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//AttributeDesignator/staticExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//Range"/>
+    <genClasses ecoreClass="Adb.ecore#//EntityRange">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//EntityRange/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//EntityRange/index"/>
+    </genClasses>
+    <genClasses ecoreClass="Adb.ecore#//ExplicitRange">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ExplicitRange/first"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Adb.ecore#//ExplicitRange/last"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

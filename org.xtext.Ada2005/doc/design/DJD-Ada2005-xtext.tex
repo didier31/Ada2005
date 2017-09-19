@@ -1,0 +1,490 @@
+\documentclass[a4paper]{prjdoc}
+\usepackage{relsec}
+\usepackage{caption}
+\usepackage{listings}
+
+\project{}
+\program{Ada 2005 syntax-sensitive eclipse plugin}
+\version{draft} 
+\title{Design Justification Document : cross-references}
+\author {Didier Garcin}
+\date{February 2015, 11th}
+
+\begin{document}
+
+\maketitle
+
+  \begin{asection}{Generalities}
+     
+     \begin{figure}\label{fig:DeclarativeItems}
+     \includegraphics[scale=1]{"../../model/Declarative Items"}
+     \captionof{figure}{Declarative Items} 
+     \end{figure} 
+     
+     \begin{asection}{Accessibility rules}
+     \label{sec:Accessibility rules}
+     Accessibility rules deal with authorized reference between two \class{Basic Declarations} of differents \class{Library Unit Declaration} 
+     and between\class{Library Unit Declarations} themselves as well. 
+        \begin{enumerate}   
+        \item All public\class{Declarative Items} are accessible.
+        \item A private\class{Library Unit Declaration} is accessible by other private \class{Library Unit Declarations} only.
+        \item To access an accessible \class{Basic Declaration} or a \class{Library Unit Declarations} itself, 
+              a\class{Library Unit Declarations} must use a \class{with} clause of the declaring
+              \class{Library Unit Declarations}. To limit the accessibility to private part only, \class{private with} must be used.
+        \end{enumerate}
+     \end{asection} %% Accessibility rules
+      
+
+     \begin{asection} {Visibility rules} 
+     \label{sec:Visibility rules}             
+     Visibility rules deal with declarations that can be directly referenced without the help of no special clause.
+      
+        \begin{enumerate} 
+        \item A \class{Declarative Item} can see \class{Declarative Items}
+              declared before in its \class{Library Unit Declaration}.    
+        \item A \class{Declarative Item} can see the \class{Basic Declarative Items} of its parent library unit.
+        \item Only \class{Declarative Items} of a \class{Package Body} can see 
+              \class{Basic Declarative Items} in the private section of its \class{Package Specification}.
+        \item The \class{Declarative Items} of a \class{Body} or a \class{Separate subunit} are hidden from outside.
+        \end{enumerate}
+     \end{asection} %% Visibility Rules
+      
+     \begin{asection}{Type resolution}
+     \underline{Subtyping}: A subtype is a subset of its base type. By extension, it can be said that a type is its own subtype.
+                     
+     \underline{Derivation}: A derived type is a new type defined with the help of a type named the base type.     
+   
+     \underline{Universal type} : Literal constants are assigned an anonymous universal type from which all types are subtype.
+   
+     Type resolution's rules on primitive types:
+        \begin{enumerate}
+        \item Universal type x Type is Type
+        \item Type x Universal type is Type
+        \item Subtype of Type x Type is Type
+        \item Type x Subtype of Type is Type          
+        \end{enumerate}
+   
+     \underline{Class assignation's rule} : An object of a given class can be assigned by an object of a subclass of this class.
+                                            As a result, assignement rule acts as subtyping.         
+     \end{asection} %% Type resolution
+   
+     \begin{asection}{Subprogram's call resolution}
+     A subprogram is identified by its name and by the type or class of its parameters.
+     In particular, formal parameters must be assignable with the actual parameters.
+     If a subprogram is a primitive\footnote{A primitive is a subprogram whom at least one parameter
+     is of the type just declared before} of a type then an implicit version of this subprogram exists 
+     for every derived type.      
+     \end{asection} %% Subprogram's call resolution  
+
+     \begin{asection}{Referencing different kind of object with an unique type}
+        \label{sec:ReferencingUniqueType}        
+        \begin{asection}{Statement of problem}            
+        In Ada syntax, there are some situations when a name may designate different kind of objects :            
+           \begin{itemize}
+           \item function call / variable reference in expressions.
+           \item subprogram's and package's libraries in with and use clauses.
+           \end{itemize}
+        This examples are contrary to an unique type authorized by Xtext to reference to.             
+        \end{asection} %% Statement of problem
+         
+        \begin{asection}{General strategy}
+        The rule of the unique referenced type implies to designate a representative class from which 
+        it is possible to navigate to the actual referenced object.           
+        \end{asection} %% General Stratery
+         
+        \begin{asection}{Justification of design}
+         
+           \begin{asection}{Solution A}
+           \label{sec:SolutionA}
+            
+           In view of the previous section, one solution consists in use as representative, 
+           a common ancestor to the different possible referenced types. 
+           The actual type of the object can then be retrieved thanks to \element{instanceof} test.
+            
+           \end{asection} %% Solution A 
+         
+           \begin{asection}{Solution B}
+           \label{sec:SolutionB}
+            
+           A second solution consists in encapsulation in a common container. 
+           Assuming that only one encapsulation is valid at the same time,
+           it is then possible to retrieve the actual object.
+         
+           Xtext demands that it can be getted the name of the object. 
+           For this purpose, Xtext allows to derive one of its runtime class \class{DefaultDeclarativeQualifiedNameProvider}
+           and to define \element{protected QualifiedName qualifiedName([RepresentativeType] ref)} in order to provide a name.
+               
+           \end{asection} %% Solution B
+            
+        \end{asection} %% Justification of design
+         
+     \end{asection} %% Referencing different kind of object with a sole type               
+         
+  \end{asection} %% Generalities
+   
+  \begin{asection}{Ada types referencement}     
+      
+     \begin{figure}
+     \includegraphics[scale=0.81]{"../../model/Typing hierarchy"}
+     \captionof{figure}{Typing hierarchy}
+     \label{fig:TypingHierarchy}
+     \end{figure}
+   
+     \begin{figure}
+     \includegraphics[scale=0.90]{"../../model/References to types"}
+     \captionof{figure}{References to types}
+     \label{fig:ReferencesToTypes}
+     \end{figure}
+
+     \begin{asection}{Statement of problem}
+      
+     Figure~\ref{fig:TypingHierarchy} shows classes involved in Ada typing.
+     Meanwhile and figure~\ref{fig:ReferencesToTypes} show classes that references types.
+     The latters delegates to \class{Subtype Indication}
+     \footnote{This attribute could be shared by these classes thanks to a common ancestor. 
+     Perhaps, scoping could take advantage of.} the care to reference a type.
+     \class{Subtype Indication} always refers on a type by its name; 
+     hence, a cross-reference should be resolved. 
+       
+     \end{asection} %% Statement of problem
+
+     \begin{asection}{The type of the reference}
+     \class{Type Declaration} is not only at the top of the class hierarchy in charge of Ada typing but
+     it defines \element{name} too that 
+     \class{DefaultDeclarativeQualifiedNameProvider} can handle.
+     As a consequence, the type of \class{Subtype Indication}::\element{subtypeMark} should be \class{Type Declaration}.            
+     \end{asection} % The type of the reference 
+             
+     \begin{asection}{Where Ada types are declared}
+     Figure~\ref{fig:TypingHierarchy} shows that type declarations 
+     \class{Data Instance Declaration} are all \class{Basic Declarative Item}.
+ 
+     So, they may appear in public or private section of a \class{Package Specification}.
+
+     It shows as well they are \class{Declarative Item} too.
+     As such, they may appear in any Ada body or \class{Block Statement}.
+
+     As a result, all the rules of visibility and accesibility apply.
+     See section~\ref{sec:Visibility rules} and \ref{sec:Accessibility rules} for details.
+
+     \end{asection} %% Where Ada types are declared
+       
+     \begin{asection}{Targets of references}
+     The problem exists because a same type may have more than declaration :
+        \begin{itemize}
+        \item \class{Full Data Type Declatation}
+        \item \class{Incomplete Type Declaration}
+        \item \ldots
+        \end{itemize}
+     The goal for \class{Subtype Indication} is to refer to the most complete definition.
+     However, the most complete definition of the referenced type is the closest from \class{Subtype Indication}.
+     So, reverse visiting in AST solves this purpose.
+     \end{asection} %% Targets of references
+  \end{asection} %% Referencing types
+
+  \begin{asection}{Variables and functions referencement}
+  By elements of program, it has to be understood :
+     \begin{itemize}
+     \item data
+     \item functions       
+     \end{itemize}
+      
+     \begin{figure}
+     \includegraphics[scale=0.65]{"../../model/Data and Functions initially"}
+     \captionof{figure}{Data and Functions : initial design}
+     \label{fig:DataandFunctionsInitial}
+     \end{figure}
+     
+     \begin{asection}{Statement of problem}
+     The figure~\ref{fig:DataandFunctionsInitial} shows which kind of named elements may appear in an expressions :
+        \begin{itemize}
+        \item \class{Function Specification}
+        \item \class{Data Instance Declaration}
+        \item \class{Number Declaration}
+        \item \class{Component Item}
+        \item \class{Discriminant Specification}
+        \end{itemize}
+    
+     What we learn by this list is that an expression may address various kinds of named entities and elements.
+     The latters are named thanks to \class{Defining Identifier List}, \class{Function Specification} is named 
+     thanks to \class{Generic Unit Declaration}. This raises some problems treated just after.       
+     \end{asection} %% Statement of problem
+       
+     \begin{asection}{Getting the objects definition by their name}             
+     The question is how to reference functions, constants and variables in \class{Expression} with an unique type of reference.
+     This is not a trival question watching this in detail.
+        
+     Indeed, \class{Data Instance Declaration} and \class{Number Declaration} may gather several declarations. 
+     The name of these instances are stored in list of \class{Defining identifier list}.
+     Meanwhile, the names of functions are defined in \class{Generic unit Declaration}.
+      
+        \begin{asection}{Solving the problem of referencing to a list of strings as names}          
+        Before all, the problem is that \class{Defining identifier list} is not a candidate for being a type of reference because 
+        certainly, it defines an attribute, \element{name} of type \class{ecore::EString} but it is a list of names. 
+        Hence, its type, \class{ecore::EString} as primitive type must be replaced by a class, \class{Identifier}.
+        As this, it \class{Named Element} may be used as referenced type. 
+        From \class{Identifier}, the definition of the element can then be accessed through containers links.          
+        \end{asection} %% Solving the problem of referencing to a list of strings as names
+       
+        \begin{asection}{The need of unifying function's referencing with others named elements of expressions}          
+        Here is the second problem to address. The common way to unify is to define a new class from which \class{Subprogram Specification}
+        and \class{Identifier} derive : \class{Named Element}. Because identifiers don't include operation's signs (+, -, *, \ldots) 
+        but \class{Function Specification}, yes, an intermediate class in inheritage must be added,
+        \class{Direct Name} for \class{Function Specification}.                    
+        \end{asection} %% The need of unifying function's referencing with others named elements of expressions
+     
+     The final result of these solutions is visible on figure~\ref{fig:DataandFunctions}.
+     
+        \begin{figure}
+        \includegraphics[scale=0.59]{"../../model/Data and Functions"}
+        \captionof{figure}{Data and Functions : final design}
+        \label{fig:DataandFunctions}
+        \end{figure}          
+     
+     \end{asection} %% Getting the objects definition by their name
+
+  \end{asection} %% Variables and functions referencement
+    
+  \begin{asection}{imports : ``with'' and ``use'' clauses}
+    
+     \begin{figure}
+     \includegraphics[scale=0.85]{"../../model/Library units"}
+     \captionof{figure}{Library units}
+     \label{fig:Library units}
+     \end{figure} 
+    
+     \begin{asection}{Statement of problem}    
+     Figure \ref {fig:Library units} gives an overview of the problem.
+    
+     On one part, \class{With clause} references a \class{Library unit} by its name.
+     On the other part, \class{Library unit} doesn't have a \element{name} attribute.    
+     Instead, \element{name} can be retrieved in its descendants or in one of their parts.    
+     \end{asection} %% Statement of problem
+    
+     \begin{asection}{Justification of design}
+     Provided that \element{name} attribute is dispatched in class hierarchy of \class{Library unit},
+     the solution described in section \ref{sec:SolutionB} is the most suitable.    
+     \end{asection} %% Justification of design
+	 
+  \end{asection} %% imports : With and Use clauses
+  
+  \begin{asection}{Class \class{Name}}
+     \begin{asection}{Statement of problem}
+     The syntax by the Ada reference manual tells a \class{Name} is :
+        \begin{itemize}
+        \item either a direct name       (identifier or operation symbol)
+        \item or an explicit dereference (deferencement of an access)
+        \item or an indexed component    (a cell of an anrray)
+        \item or a slice                 (a subarray)
+        \item or a selected component    (the component of a record)
+        \item or an attribute reference  (of a name)
+        \item or a type conversion      
+        \item or a function call
+        \item or a character literal     (to designate ASCII indexes by their character literals. I can see nothing else.)
+        \end{itemize}
+  
+     \ref{fig:Class Name used for programs} shows that Name is used to designate entries (with class \class{Requeue Statement}), 
+     tasks and exceptions too.
+  
+        \begin{figure}
+        \includegraphics[scale=1.0]{"../../model/Class Name used for data"}
+        \captionof{figure}{Class Name used for data}
+        \label{fig:Class Name used for data}
+        \end{figure}
+  
+        \begin{figure}
+        \includegraphics[scale=0.99]{"../../model/Class Name used for programs"}
+        \captionof{figure}{Class Name used for programs}
+        \label{fig:Class Name used for programs}
+        \end{figure} 
+     
+        \begin{figure}
+        \includegraphics[scale=0.91]{"../../model/Class Name used for types"}
+        \captionof{figure}{Class Name used for types}
+        \label{fig:Class Name used for types}
+        \end{figure} 
+  
+     As a result, a Name designates either a data, a type, a subprogram, an entry, a task or an exception.
+     
+     This point is a problem for references because identifiers in class \class{Name} must refer to an unique type.                  
+     \end{asection} %% Statement of problem 
+  
+     \begin{asection}{General strategy}
+     
+        \begin{asection}{Solution A}
+        A solution consists in applying strategy of section \ref{sec:SolutionA}. 
+        This assumes to define a common ancestor to these classes letting 
+        the cross-reference find by name the correct object.       
+        \end{asection}
+        
+        \begin{asection}{Solution B}
+        \class{Name} is very generic and used to designate many classes and all its syntax is not always used.
+        Hence, another solution consists in splitting \class{Name} in several \class{Name} specialized classes.
+        
+           \begin{asection}{Method for \class{Name} specialization}
+           For each class having an attribute of type Name, 
+           determine the type of the referenced object.
+           
+           For this type, localize the attribute \element{name}.
+           
+           If the attribute \element{name} is defined in an ancestor,
+           inventory its descendants.
+           
+           For each of its descendant, determine the general form of its qualified name based on the syntax and semantic of its Ada declaration(s)
+           and if a language-defined attribute has its type.
+           
+           Create a new class \class{Name} rid of unnecessary syntactic constructions.
+                       
+           \end{asection} %% Method for \class{Name} specialization
+           
+           The following sections apply this algorithm.
+           
+           \begin{asection}{Name designating an exception's name}
+           \ref{fig:Class Name used for programs} shows \class{Raise Statement} and \class{Exception Declaration}
+           that designate exception by its name of type \class{Name}.
+           
+           The declaration of a exception is immuable : an identifier followed by the keyword \textit{exception}.
+           This means that its qualified name is always the including packages names followed by its identifier :
+           Exception qualified name : (Package identifier)* Exception's identifier.           
+           \end{asection} %% Name designating an exception's name
+
+           \begin{asection}{Name designating a task}
+           Tasks can be declared as data :
+              \begin{enumerate}
+              \item They can be indexed
+              \item referenced by an access variable
+              \item discriminated 
+              \end{enumerate}              
+              
+           It doesn't exist language-defined attribute of type task. 
+           Its name is an identifier.
+              
+           As a result, \class{Task Name} doesn't need :
+              \begin{itemize}
+              \item Attribute designator : no predefined attribute is a task.
+              \item operator symbol neither character literal literals 
+              \end{itemize}              
+           \end{asection} %% Name designating a task
+           
+           \begin{asection}{Name designating a procedure or an entry call}
+           
+           As a procedure and entry calls are syntactically indistiguable, their call-name are the same.
+           Here, optimizations are analyzed separately and unified at the end of this section. 
+           
+              \begin{asection}{Name designating an entry}
+           
+              An entry can :
+                 \begin{enumerate}
+                 \item be indexed 
+                 \item have parameters (i.e: a formal part)
+                 \end{enumerate}              
+              
+                 It doesn't exist language-defined attribute of type entry.
+                 Its name is an identifier.
+                 It can't be referenced by an Ada access.
+              
+             As a result, \class{Entry Name} doesn't need :
+                 \begin{itemize}
+                 \item Attribute designator : no predefined attribute is a task.
+                 \item operator symbol neither character literal literals
+                 \item .all as an entry can't be designated by a type. 
+                 \end{itemize}              
+           
+              \end{asection} %%Name designating an entry
+           
+              \begin{asection}{Name designating a procedure}
+         
+                 A procedure can :
+                    \begin{enumerate}
+                    \item be referenced by an Ada access
+                    \item be indexed indirectly through an Ada access.
+                    \item have parameters (i.e: a formal part)
+                    \item can adopt the language-defined attribute's notation
+                    \end{enumerate}              
+             
+                Its name is an identifier.
+              
+                As a result, \class{Procedure Name} doesn't need :
+                   \begin{itemize}
+                   \item operator symbol neither character literal literals 
+                   \end{itemize}  
+         
+              \end{asection} %% Name designating a procedure
+              
+              \begin{asection}{Conclusion}
+              
+              As a result, A procedure/entry call-name doesn't need :
+                   \begin{itemize}
+                   \item operator symbol neither character literal literals
+                   \end{itemize}
+                   
+              \end{asection}          
+              
+           \end{asection} %% Name designating a procedure or an entry call
+
+        \end{asection} %% Solution B
+
+     \end{asection} %% General Strategy
+  
+  \end{asection} %% Class Name
+  
+  \begin{asection}{Reference to Ada entry}
+     
+     \begin{figure}
+     \includegraphics[scale=0.78]{"../../model/Entry declaration"}
+     \captionof{figure}{Entry declaration}
+     \label{fig:Entry declaration}
+     \end{figure}  
+        
+     \begin{figure}
+     \includegraphics[scale=0.78]{"../../model/Entry call"}
+     \captionof{figure}{Entry call}
+     \label{fig:Entry call}
+     \end{figure}
+     
+     Figure \ref{fig:Entry call} shows the classes that reference entries :
+        \begin{enumerate}
+        \item \class{Accept Statement}
+        \item \class{Procedure Or Entry Call Statement}
+        \item \class{Entry Body}
+        \end{enumerate} 
+     
+     \begin{asection}{The scope}
+     
+     \end{asection} %% The scope
+  
+  \end{asection} %% Reference to Ada entry
+  
+  \begin{asection}{Linking with Xtext}
+     \begin{asection}{Names and namespaces}
+     Linking deals with referencing by name.
+     To ensure names are unique, container's names are used as namespaces in order to disambiguate.
+     For instance, the local variable of a method is preceded by the name of this method which 
+     is preceded by the name of the class and so on. 
+     
+     Concatenating these names is performed by descendants of \class{IQualifiedNameProvider}. 
+     By default, \class{DefaultDeclarativeQualifiedNameProvider} is the implementator.
+     This function of this class is based on attributes \element{name} of the ecore classes of the meta-model.  
+     Nevertheless, the xtext grammar of the user could not respect for good reasons the convention used by the default implementation.
+     That's why it is possible to derive \class{DefaultDeclarativeQualifiedNameProvider} to adapt the function. 
+     More, do not forget to add in the descendant of \class{DefaultRuntimeModule} :
+     \begin{lstlisting}
+public Class<? extends org.eclipse.xtext.naming.IQualifiedNameProvider> 
+bindIQualifiedNameProvider() 
+{
+   return YourQualifiedNameProvider.class;
+}
+     \end{lstlisting}
+     A name preceded by its containers names is called a \class{QualifiedName}.    
+       
+     \end{asection} %% Names
+     
+     \begin{asection}{Named objects container}
+     All named objects are stored in a global container called the index.
+     
+     %% TODO : Complete the chapter
+     
+     \end{asection} %% Ada objects container
+  
+  \end{asection} %% Cross-referencing by Xtext 
+\end{document}

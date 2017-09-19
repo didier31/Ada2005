@@ -1,0 +1,204 @@
+module org.xtext.GenerateAda2005
+
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.xtext.generator.*
+import org.eclipse.xtext.ui.generator.*
+import org.xtext.contrib.patchers.*
+
+
+var grammarURIAdb = "classpath:/org/xtext/ada2005/Adb.xtext"
+var fileAdb.extensions = "adb,ads,a,ada"
+
+var projectName = "org.xtext.Ada2005"
+var runtimeProject = "../${projectName}"
+
+Workflow {
+    bean = StandaloneSetup {
+            scanClassPath = true
+            platformUri = "${runtimeProject}/.."
+            // The following two lines can be removed, if Xbase is not used.
+//            registerGeneratedEPackage = "org.eclipse.xtext.xbase.XbasePackage"
+//            registerGenModelFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel"                   
+        }
+    
+        component = DirectoryCleaner {
+            directory = "${runtimeProject}/src-gen"
+        }
+    
+        component = DirectoryCleaner {
+            directory = "${runtimeProject}.ui/src-gen"
+        }
+        
+                component = DirectoryCleaner {
+            directory = "${runtimeProject}/model/generated"
+        }
+    
+        component = Generator {
+            pathRtProject = runtimeProject
+            pathUiProject = "${runtimeProject}.ui"
+            pathTestProject = "${runtimeProject}.tests"
+            projectNameRt = projectName
+            projectNameUi = "${projectName}.ui"                       
+
+            /////////////////////////////////////////////            
+            //              Ada language
+            /////////////////////////////////////////////
+            language = {
+                uri = grammarURIAdb
+                fileExtensions = fileAdb.extensions
+    
+                // Java API to access grammar elements (required by several other fragments)
+                fragment = grammarAccess.GrammarAccessFragment auto-inject {}
+    
+                // generates Java API for the generated EPackages
+               fragment = ecore.EMFGeneratorFragment auto-inject {
+                // referencedGenModels = "
+                //  platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel,
+                //  platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel
+                // "
+                
+                }
+    
+                // Serializer 2.0
+                fragment = serializer.SerializerFragment auto-inject {
+                	generateStub = false
+                }
+                
+                // the serialization component (1.0)
+                // fragment = parseTreeConstructor.ParseTreeConstructorFragment {}
+    
+                // a custom ResourceFactory for use with EMF
+                fragment = resourceFactory.ResourceFactoryFragment auto-inject {
+                    fileExtensions = fileAdb.extensions
+                } 
+    
+                // The antlr parser generator fragment.
+               fragment = parser.antlr.ex.rt.AntlrGeneratorFragment auto-inject {
+                   options = {
+                       ignoreCase = true                     
+                   }
+               }
+    
+                // java-based API for validation
+                fragment = validation.JavaValidatorFragment auto-inject {
+                //    composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
+                //    composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+                }
+    
+                // scoping and exporting API
+                 fragment = scoping.ImportURIScopingFragment auto-inject {}
+                // fragment = exporting.SimpleNamesFragment {}
+    
+                // scoping and exporting API
+                //fragment = scoping.ImportNamespacesScopingFragment auto-inject {}
+                fragment = exporting.QualifiedNamesFragment auto-inject {}
+                fragment = builder.BuilderIntegrationFragment auto-inject {}
+    
+                // generator API
+                fragment = generator.GeneratorFragment auto-inject {
+                    generateMwe = false
+                    generateJavaMain = false
+                }
+    
+                // formatter API
+                fragment = formatting.FormatterFragment auto-inject {}
+    
+                // labeling API
+                fragment = labeling.LabelProviderFragment auto-inject {}
+    
+                // outline API
+                fragment = outline.OutlineTreeProviderFragment auto-inject {}
+                fragment = outline.QuickOutlineFragment auto-inject {}
+    
+                // quickfix API
+                fragment = quickfix.QuickfixProviderFragment auto-inject {}
+    
+                // content assist API
+                fragment = contentAssist.JavaBasedContentAssistFragment auto-inject {}
+    
+                // generates a more lightweight Antlr parser and lexer tailored for content assist
+                fragment = parser.antlr.ex.ca.ContentAssistParserGeneratorFragment auto-inject {
+                    options = {
+                        ignoreCase = true
+                    }
+                }
+    
+                // generates junit test support classes into Generator#pathTestProject
+                fragment = junit.Junit4Fragment auto-inject {}
+    
+                // project wizard (optional)
+                // fragment = projectWizard.SimpleProjectWizardFragment {
+                //      generatorProjectName = "${projectName}"
+                //      modelFileExtension = file.extensions
+                // }
+    
+                // rename refactoring
+                fragment = refactoring.RefactorElementNameFragment auto-inject {}
+    
+                // provides the necessary bindings for java types integration
+                //fragment = types.TypesGeneratorFragment auto-inject {}
+    
+                // generates the required bindings only if the grammar inherits from Xbase
+               // fragment = xbase.XbaseGeneratorFragment auto-inject {}
+    
+                // provides a preference page for template proposals
+                fragment = templates.CodetemplatesGeneratorFragment auto-inject {}
+    
+                // provides a compare view
+                fragment = compare.CompareFragment auto-inject {
+                     fileExtensions = fileAdb.extensions
+                } 
+    
+            }             
+                   
+        }     
+//    component = Refactor64Klimit {
+//	               javaProjectName = "org.xtext.Ada2005.ui"
+//	               sourceFolder = "src-gen"
+//	               javaPackageName = "org.xtext.ada2005.ui.contentassist.antlr.internal"
+//                   javaFilename = "InternalAdbParser.java"
+//                   }        
+   
+//    component = ClassRenamingMWE2WorkflowComponent {
+//	               javaProjectName = "org.xtext.Ada2005"
+//	               sourceFolder = "src-gen"
+//	               javaPackageName = "org.xtext.ada2005.parser.antlr.lexer"
+//                   javaFilename = "InternalAdbLexer.java"
+//                   regexp = "^"
+//                   replacedBy = "Superseded"
+//                   }     TODO : To be removed if not necessary any more.
+
+    component = JflexMWE2WorkflowComponent {
+    	           outputDirectory = "src-gen/org/xtext/ada2005/parser/antlr/lexer/jflex/"
+    	           jflexFilename = "src/org/xtext/ada2005/parser/antlr/lexer/jflex/ada2005.jflex"
+                   }
+   
+    component = PatchJFlexReader {
+	               javaProjectName = "org.xtext.Ada2005"
+	               sourceFolder = "src-gen"
+	               javaPackageName = "org.xtext.ada2005.parser.antlr.lexer.jflex"
+                   javaFilename = "JFlexInternalAdbLexer.java"
+                   }  
+    
+    component = PatchJFlexReader {
+	               javaProjectName = "org.xtext.Ada2005.ui"
+	               sourceFolder = "src"
+	               javaPackageName = "org.xtext.ada2005.parser.ui.contentassist.antlr.lexer.jflex"
+                   javaFilename = "JFlexInternalAdbLexerWithAntlrReader.java"
+                   }  
+                   
+    component = ClassDuplicateAndExtendChange
+           {
+           javaProjectName = "org.xtext.Ada2005"
+           sourceFolder = "src-gen"
+           javaPackageName = "org.xtext.ada2005.parser.antlr.lexer.jflex"
+           javaFilename = "JFlexInternalAdbLexer.java"
+           
+	       newJavaPackageName = "org.xtext.ada2005.ui.contentassist.antlr.lexer.jflex"
+	       newJavaProjectName = "org.xtext.Ada2005.ui"
+	       newSourceFolder = "src-gen"
+           newJavaFilename = "JFlexInternalAdbLexer.java"
+           newExtend = "org.xtext.ada2005.ui.contentassist.antlr.lexer.InternalAdbLexer"	        	        
+           }                                                                                    
+}
+

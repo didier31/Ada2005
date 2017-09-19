@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.gmf.runtime.emf.core.Pathmaps">
+      <pathmap
+            name="Ada2005Profile.pathmap"
+            path="Ada2005.uml">
+      </pathmap>
+   </extension>
+   <extension
+         point="org.eclipse.uml2.uml.dynamic_package">
+      <profile
+            location="Ada2005.uml"
+            uri="http:///Ada2005.uml">
+      </profile>
+   </extension>
+
+</plugin>

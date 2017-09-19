@@ -1,0 +1,24 @@
+module org.xtext.GenerateFlex
+
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.xtext.generator.*
+import org.eclipse.xtext.ui.generator.*
+import org.xtext.ada2005
+import org.xtext.contrib.patchers.*
+
+
+Workflow {
+   component = JflexMWE2WorkflowComponent {
+    	           outputDirectory = "src-gen/org/xtext/ada2005/parser/antlr/lexer/jflex/"
+    	           jflexFilename = "src/org/xtext/ada2005/parser/antlr/lexer/jflex/ada2005.jflex"
+                   }
+   
+    component = PatchJFlexReader {
+	               javaProjectName = "org.xtext.Ada2005"
+	               sourceFolder = "src-gen"
+	               javaPackageName = "org.xtext.ada2005.parser.antlr.lexer.jflex"
+                   javaFilename = "JFlexInternalAdbLexer.java"
+                   }  
+                                 
+component = org.xtext.ada2005.TestAda2005jlex  {}                    
+}
